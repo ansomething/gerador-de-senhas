@@ -1,0 +1,69 @@
+<MainLayout>:
+    BoxLayout:
+        id: mainbox
+        size: root.width, root.height
+        orientation: 'vertical'
+        padding: 40, 0, 40, 100
+
+        Label:
+            text: "Gerador de Senha"
+            font_size: 40
+            color: (30/255, 111/255, 217/255, 1)
+            bold: True
+
+        RelativeLayout:
+            id: secondbox
+
+            Label:
+                id: pwoutput
+                font_size: 30
+                color: (0, 0, 0, 1)
+                Image:
+                    id: pwframe
+                    source: 'widgets/senha-frame.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    size_hint: (None, None)
+                    width: 360
+                    height: 62
+
+            Button:
+                id: btncopiar
+                background_color: (242/255, 242/255, 242/255, 1)
+                background_normal: ''
+                background_down: ''
+                size_hint: (None, None)
+                width: 29
+                height: 28
+                pos_hint: {'center_x': 0.85, 'center_y': 0.5}
+                on_press: root.copy_password()
+                on_press: root.copiar_on_press()
+                on_release: root.copiar_on_release()
+                Image:
+                    id: btncopiarimg
+                    source: 'widgets/btn-copiar-dark.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    size_hint: (None, None)
+                    width: 25
+                    height: 25
+
+        Button:
+            id: btngerar
+            background_color: (242/255, 242/255, 242/255, 1)
+            background_normal: ''
+            background_down: ''
+            size_hint: (None, None)
+            width: 300
+            height: 50
+            pos_hint: {'center_x': 0.5}
+            on_press: root.generated_password()
+            on_press: root.gerar_on_press()
+            on_release: root.gerar_on_release()
+            Image:
+                id: btngerarimg
+                source: 'widgets/btn-gerar-dark.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                width: 352
+                height: 62
